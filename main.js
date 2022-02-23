@@ -1,120 +1,4 @@
 
-// Number clicks:
-function whatNumberYouClicked() {
-    // window.addEventListener('load', () => {
-        let buttonSet = document.querySelectorAll('.btn');
-        // console.log(buttonSet);
-        buttonSet.forEach((uniqueButton) => {
-            // console.log("Hello button!");
-            uniqueButton.addEventListener('click', (e) => {
-                // console.log(e, "EVENT");
-                buttonNumber = uniqueButton.innerHTML;
-                let greeting = `You clicked button ${buttonNumber}!`;
-                if (buttonNumber > 1) {
-                    alert(greeting);
-                }
-            });
-        });
-    // });
-}
-whatNumberYouClicked();
-
-
-
-
-
-
-
-//Source: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/conditionals
-// Using if...else but better to use  switch case statement
-const giftSelect = document.getElementById('gift-select');
-const message = document.getElementById('gift-message');
-giftSelect.addEventListener('change', giftMessage)
-function giftMessage() {
-    const choice = giftSelect.value;
-
-    if (choice === 'socks') {
-        message.textContent = 'Great choice for keeping your feet warm.'
-    }
-    else if (choice === 'mug'){
-        message.textContent = 'Wonderful. Put coffee or tea inside it.';
-    }
-    else if (choice === 'tesla'){
-        message.textContent = 'Nice. Somebody loves you.';
-    }
-    else if (choice === 'candy'){
-        message.textContent = 'Better be chocolate.';
-    }
-    else {
-        message.textContent = '';
-    }
-}
-
-// Using switch statement
-function animalReactionAlert() {
-    let animalButtonSet = document.querySelectorAll('.btn');
-    console.log(animalButtonSet)
-    animalButtonSet.forEach((uniqueButton) => {
-        uniqueButton.addEventListener('click', (e) => {
-            console.log(e)
-            // TO DO: Make different alert on different buttons
-            const buttonContent = uniqueButton.innerHTML;
-            console.log(buttonContent);
-            switch (buttonContent) {
-                case 'Caterpillar':
-                alert(`Too many legs!`);
-                break;
-                case 'Spider':
-                alert(`Aren't they poisonous?`);
-                break;
-                case 'Grasshopper':
-                alert(`Great! Add some salt!`);
-                break;
-            }
-
-        });
-    });
-}
-animalReactionAlert();
-
-
-
-function displayMessage(e) {
-    const form = document.getElementById('fizz-buzz-form');
-    // console.log(form);
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const messageArea = document.getElementById('number-return-area');
-        const fizzBuzzArea = document.getElementById('fizz-buzz-area');
-        // console.log(messageArea, "MESSAGE HERE");
-        // messageArea.textContent = "Howdy"
-        const userNumber = document.getElementById('user-number').value;
-        // console.log(userNumber);
-        messageArea.textContent = `Here is your number: ${userNumber}`;
-        // Note: The FIZZBUZZ needs to come before the other conditions. Think like a program.
-        if (userNumber % 3 === 0 && userNumber % 5 === 0) {
-            fizzBuzzArea.textContent = "FIZZ BUZZ! Your number is di-VIZZ-able by both 3 and 5!"
-        }
-        else if (userNumber % 5 === 0) {
-            fizzBuzzArea.textContent = "BUZZ! Your number is di-VIZZ-able by 5!"
-        }
-        else if (userNumber % 3 === 0) {
-            fizzBuzzArea.textContent = "FIZZ! Your number is di-VIZZ-able by 3!"
-        }
-        else {
-            fizzBuzzArea.textContent = "No fizzy buzzy. Try again!"
-        }
-    });
-};
-
-displayMessage();
-
-
-
-
-
-
-
     // human clicks one of three cards (one click only)
     // computer choice is generated at the same time (right after)
     // switch case statement to evaluate 9 possibilities, determine winner
@@ -180,7 +64,6 @@ humanCards.forEach((card) => {
 
 
         // TO DO: Need a while loop here? While computer and human score less than five...
-        while (humanScore < 5) {
 
 
             let result = "";
@@ -239,13 +122,18 @@ humanCards.forEach((card) => {
                 console.log(displayHumanScore);
                 displayHumanScore.innerHTML = `<p>${humanScore}</p>`
 
-        setTimeout(() => {
+
             let alert = document.getElementById('rps-alert');
-            alert.innerText = `You chose ${humanChoice}. The computer chose ${computerChoice}. Winner is: ${result}!`
-        }, 500)
+            if (computerScore = 0) {
+              alert.innerText = `Ready to play?`;
+            }
+            else {
+              alert.innerText = `You chose ${humanChoice}. The computer chose ${computerChoice}. Winner is: ${result}!`
+            }
 
 
-        }  // ends while loop
+
+        // }  // ends while loop
 
       // } // ends while loop - but game plays automatically...
 
@@ -273,14 +161,6 @@ humanCards.forEach((card) => {
 function insertScore(computer, human) {
 
 }
-
-
-
-
-
-
-
-
 
 
 

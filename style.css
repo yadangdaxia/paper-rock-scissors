@@ -21,9 +21,9 @@ body {
 }
 
 .computer-card {
-    width: 120px;
-    height: 120px;
-    margin: 12px;
+    width: 150px;
+    height: 150px;
+    margin: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,4 +34,9 @@ body {
 .computer-card image {
     width: 120px;
     height: 120px;
+}
+
+#rps-alert {
+  background-color: #ee34ee;
+  width: 500px;
 }
