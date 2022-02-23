@@ -1,5 +1,5 @@
 
-// Number clicks: 
+// Number clicks:
 function whatNumberYouClicked() {
     // window.addEventListener('load', () => {
         let buttonSet = document.querySelectorAll('.btn');
@@ -69,7 +69,7 @@ function animalReactionAlert() {
                 break;
                 case 'Grasshopper':
                 alert(`Great! Add some salt!`);
-                break;                
+                break;
             }
 
         });
@@ -91,7 +91,7 @@ function displayMessage(e) {
         const userNumber = document.getElementById('user-number').value;
         // console.log(userNumber);
         messageArea.textContent = `Here is your number: ${userNumber}`;
-        // Note: The FIZZBUZZ needs to come before the other conditions. Think like a program. 
+        // Note: The FIZZBUZZ needs to come before the other conditions. Think like a program.
         if (userNumber % 3 === 0 && userNumber % 5 === 0) {
             fizzBuzzArea.textContent = "FIZZ BUZZ! Your number is di-VIZZ-able by both 3 and 5!"
         }
@@ -108,10 +108,6 @@ function displayMessage(e) {
 };
 
 displayMessage();
-
-
-
-
 
 
 
@@ -140,10 +136,19 @@ const humanCards = document.querySelectorAll('.rps-card');
 humanCards.forEach((card) => {
     // console.log(card)
 
+
     card.addEventListener('click', (e) => {
-        // console.log(e)
+        // while loop works, but game plays automatically
+      // while (humanScore < 5) {
+
         let humanChoice = card.id
         console.log(humanChoice, '<-- this is the human choice')
+
+        card.animate([{ opacity: 0 }, { opacity: 1 }], {
+          duration: 300,
+          delay: 0,
+        });
+
 
         const choices = ['rock', 'paper', 'scissors'];
         // Interesting that I still need to use Math.floor on a string.
@@ -153,6 +158,16 @@ humanCards.forEach((card) => {
         // TO DO: Display correct picture for computer choice. Can create function.
         // let computerCard = document.getElementById('computer-choice-message');
         let computerCardImage = document.getElementById('computer-choice-image');
+       // animations here
+
+        computerCardImage.animate([{ opacity: 0 }, { opacity: 1 }],{
+          duration: 300,
+          fill: "forwards",
+          iterations: 1,
+          delay: 0,
+          easing: "ease-out",
+        });
+
 
         // console.log(computerCard, "COMPUTER CARD");
         // console.log(computerCardImage, "COMPUTER CARD IMAGE");
@@ -161,10 +176,12 @@ humanCards.forEach((card) => {
             // computerCard.innerText=`The computer chose ${computerChoice}.`
             computerCardImage.innerHTML = `<image src="images/${computerChoice}.png"></image>`
         }, 100);
-       
+
 
 
         // TO DO: Need a while loop here? While computer and human score less than five...
+        while (humanScore < 5) {
+
 
             let result = "";
             // NOTE: I couldn't define the variable in the if/else statement. I got  Uncaught ReferenceError: $ is not defined error, so defined it above and assigned below.
@@ -194,7 +211,6 @@ humanCards.forEach((card) => {
                     result = 'Human';
                     humanScore = humanScore + 1
                 }
-
                 else if (computerChoice === 'scissors' && humanChoice === 'scissors') {
                     result = 'Tie';
                     // humanScore = humanScore + 0
@@ -210,15 +226,10 @@ humanCards.forEach((card) => {
                 else {
                     result = 'Unknown winner';
                 }
-                
-
-
 
                 console.log(result, "<--- result");
                 console.log(computerScore, "<--- computer score here");
                 console.log(humanScore, "<--- human score here");
-                
-
 
                 const displayComputerScore = document.getElementById('computer-score');
                 console.log(displayComputerScore);
@@ -228,13 +239,15 @@ humanCards.forEach((card) => {
                 console.log(displayHumanScore);
                 displayHumanScore.innerHTML = `<p>${humanScore}</p>`
 
-
-
         setTimeout(() => {
             let alert = document.getElementById('rps-alert');
             alert.innerText = `You chose ${humanChoice}. The computer chose ${computerChoice}. Winner is: ${result}!`
         }, 500)
 
+
+        }  // ends while loop
+
+      // } // ends while loop - but game plays automatically...
 
     });
 });
