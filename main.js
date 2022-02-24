@@ -7,163 +7,172 @@
     // human can choose to play again after winner is declared
 
 
-playRockPaperScissors();
+// playRockPaperScissors();
 
-function playRockPaperScissors() {
+// function playRockPaperScissors() {
 
 let computerScore = 0;
 let humanScore = 0;
 
+let alert = document.getElementById('rps-alert');
+alert.innerText = `Ready to play?`;
+
 const humanCards = document.querySelectorAll('.rps-card');
-// console.log(humanCards);
 
 humanCards.forEach((card) => {
-    // console.log(card)
-
-
     card.addEventListener('click', (e) => {
-        // while loop works, but game plays automatically
+        // while loop works, but game plays automatically...
       // while (humanScore < 5) {
-
         let humanChoice = card.id
         console.log(humanChoice, '<-- this is the human choice')
-
-        card.animate([{ opacity: 0 }, { opacity: 1 }], {
-          duration: 300,
-          delay: 0,
-        });
-
+        // card.animate([{ opacity: 0 }, { opacity: 1 }], {
+        //   duration: 300,
+        //   delay: 0,
+        // });
 
         const choices = ['rock', 'paper', 'scissors'];
-        // Interesting that I still need to use Math.floor on a string.
         let computerChoice = choices[Math.floor(Math.random() * choices.length)]
-        console.log(computerChoice, '<-- this is the computer choice');
+        // console.log(computerChoice, '<-- this is the computer choice');
+        let computerRock = document.getElementById('computer-rock');
+        // console.log(computerRock);
+        let computerPaper = document.getElementById('computer-paper');
+        // console.log(computerPaper);
+        let computerScissors = document.getElementById('computer-scissors');
+        // console.log(computerScissors);
 
-        // TO DO: Display correct picture for computer choice. Can create function.
-        // let computerCard = document.getElementById('computer-choice-message');
-        let computerCardImage = document.getElementById('computer-choice-image');
+      // if (computerChoice = 'rock') {
+      //   console.log(computerRock, "ROCK");
+      // }
+      // else if (computerChoice = 'paper') {
+      //   console.log(computerPaper, "PAPER")
+      // }
+      // else if (computerChoice = 'scissors') {
+      //   console.log(computerScissors, "SCISS")
+      // }
+      // else {
+      //   console.log('error')
+      // }
+
+
+        // let computerCardImage = document.getElementById('computer-choice-image');
        // animations here
 
-        computerCardImage.animate([{ opacity: 0 }, { opacity: 1 }],{
-          duration: 300,
-          fill: "forwards",
-          iterations: 1,
-          delay: 0,
-          easing: "ease-out",
-        });
+        // computerCardImage.animate([{ opacity: 0 }, { opacity: 1 }],{
+        //   duration: 300,
+        //   fill: "forwards",
+        //   iterations: 1,
+        //   delay: 0,
+        //   easing: "ease-out",
+        // });
 
-
-        // console.log(computerCard, "COMPUTER CARD");
-        // console.log(computerCardImage, "COMPUTER CARD IMAGE");
-
-        setTimeout(() => {
-            // computerCard.innerText=`The computer chose ${computerChoice}.`
-            computerCardImage.innerHTML = `<image src="images/${computerChoice}.png"></image>`
-        }, 100);
-
-
-
-        // TO DO: Need a while loop here? While computer and human score less than five...
-
+        // setTimeout(() => {
+            // computerCardImage.innerHTML = `<image src="images/${computerChoice}.png"></image>`
+        // }, 100);
 
             let result = "";
             // NOTE: I couldn't define the variable in the if/else statement. I got  Uncaught ReferenceError: $ is not defined error, so defined it above and assigned below.
-
                 if (computerChoice === 'rock' && humanChoice === 'rock') {
                     result = 'Tie';
                     // humanScore = humanScore + 0
+                    computerScore = computerScore + 1;
+                    showRock();
                 }
+
                 else if (computerChoice === 'rock' && humanChoice === 'paper') {
                     result = 'Human';
-                    humanScore = humanScore + 1
+                    humanScore = humanScore + 1;
+                  showRock();
                 }
+
                 else if (computerChoice === 'rock' && humanChoice === 'scissors') {
                     result = 'Computer';
-                    computerScore = computerScore + 1
+                    computerScore = computerScore + 1;
+                  showRock();
                 }
 
                 else if (computerChoice === 'paper' && humanChoice === 'paper') {
                     result = 'Tie';
                     // humanScore = humanScore + 0
+                  showRock();
                 }
                 else if (computerChoice === 'paper' && humanChoice === 'rock') {
                     result = 'Computer';
-                    computerScore = computerScore + 1
+                    computerScore = computerScore + 1;
+                  showRock();
                 }
                 else if (computerChoice === 'paper' && humanChoice === 'scissors') {
                     result = 'Human';
-                    humanScore = humanScore + 1
+                    humanScore = humanScore + 1;
+                  showPaper();
                 }
                 else if (computerChoice === 'scissors' && humanChoice === 'scissors') {
                     result = 'Tie';
                     // humanScore = humanScore + 0
+                  showScissors();
                 }
                 else if (computerChoice === 'scissors' && humanChoice === 'rock') {
                     result = 'Human';
-                    humanScore = humanScore + 1
+                    humanScore = humanScore + 1;
+                  showScissors();
                 }
                 else if (computerChoice === 'scissors' && humanChoice === 'paper') {
                     result = 'Computer';
-                    computerScore = computerScore + 1
+                    computerScore = computerScore + 1;
+                  showScissors();
                 }
                 else {
                     result = 'Unknown winner';
                 }
 
-                console.log(result, "<--- result");
-                console.log(computerScore, "<--- computer score here");
-                console.log(humanScore, "<--- human score here");
+
+                // console.log(result, "<--- result");
+                // console.log(computerScore, "<--- computer score here");
+                // console.log(humanScore, "<--- human score here");
 
                 const displayComputerScore = document.getElementById('computer-score');
-                console.log(displayComputerScore);
+                // console.log(displayComputerScore);
                 displayComputerScore.innerHTML = `<p>${computerScore}</p>`
 
                 const displayHumanScore = document.getElementById('human-score');
-                console.log(displayHumanScore);
+                // console.log(displayHumanScore);
                 displayHumanScore.innerHTML = `<p>${humanScore}</p>`
 
-
-            let alert = document.getElementById('rps-alert');
-            if (computerScore = 0) {
-              alert.innerText = `Ready to play?`;
-            }
-            else {
               alert.innerText = `You chose ${humanChoice}. The computer chose ${computerChoice}. Winner is: ${result}!`
-            }
 
 
+      function showRock() {
+        computerRock.classList.add('active');
+        computerScissors.classList.remove('active');
+        computerPaper.classList.remove('active');
+      }
+
+
+      function showPaper() {
+        computerPaper.classList.add('active');
+        computerScissors.classList.remove('active');
+        computerRock.classList.remove('active');
+      };
+
+      function showScissors() {
+        computerScissors.classList.add('active');
+        computerPaper.classList.remove('active');
+        computerRock.classList.remove('active');
+      };
 
         // }  // ends while loop
-
       // } // ends while loop - but game plays automatically...
-
     });
 });
-}
-
-
-
-
-
-
-
-// function addRow(tableID) {
-//     let table = document.getElementById(tableID);
-//     // Insert new row
-//     let newRow = table.insertRow(-1);
-//     let newCell = table.insertCell(0);
 // }
+
+
 
 
 
 
 // pass to HTML
 function insertScore(computer, human) {
-
 }
-
-
-
 
 
 function addScore(computerScore, humanScore) {

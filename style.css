@@ -17,7 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     color: #FFFFFF;
-    border:  24px solid #FFFFFF;
+    /* border:  24px solid #FFFFFF; */
 }
 
 .computer-card {
@@ -28,15 +28,32 @@ body {
     justify-content: center;
     align-items: center;
     color: black;
-    border:  24px solid #FFFFFF;
+    /* border:  24px solid #FFFFFF; */
     font-size: 18px;
 }
-.computer-card image {
-    width: 120px;
-    height: 120px;
+.computer-card.active {
+  border: 24px solid blue;
+  border-radius: 12px;
 }
+
+.rps-card:hover {
+  border: 24px solid red;
+  border-radius: 12px;
+}
+
+.computer-card img {
+    width: 135px;
+    height: 135px;
+    border-radius: 12px;
+}
+.rps-card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+}
+
 
 #rps-alert {
   background-color: #ee34ee;
-  width: 500px;
+  width: 600px;
 }
