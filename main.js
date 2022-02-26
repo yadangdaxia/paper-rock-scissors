@@ -15,7 +15,7 @@ let computerScore = 0;
 let humanScore = 0;
 
 let alert = document.getElementById('rps-alert');
-alert.innerText = `Ready to play?`;
+alert.innerText = `Click rock, paper, or scissors and the computer will respond!`;
 
 const humanCards = document.querySelectorAll('.rps-card');
 
@@ -27,7 +27,10 @@ humanCards.forEach((card) => {
         console.log(humanChoice, '<-- this is the human choice')
         // card.animate([{ opacity: 0 }, { opacity: 1 }], {
         //   duration: 300,
+        //   fill: "forwards",
+        //   iterations: 1,
         //   delay: 0,
+        //   easing: "ease-out",
         // });
 
         const choices = ['rock', 'paper', 'scissors'];
@@ -137,8 +140,15 @@ humanCards.forEach((card) => {
                 // console.log(displayHumanScore);
                 displayHumanScore.innerHTML = `<p>${humanScore}</p>`
 
-              alert.innerText = `You chose ${humanChoice}. The computer chose ${computerChoice}. Winner is: ${result}!`
 
+
+
+        alert.innerText = `Winner: ${result}!`
+
+
+      alert.animate([{ opacity: 0 }, { opacity: 1 }], {
+          duration: 500,
+        });
 
       function showRock() {
         computerRock.classList.add('active');
