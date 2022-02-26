@@ -77,7 +77,7 @@ humanCards.forEach((card) => {
                 if (computerChoice === 'rock' && humanChoice === 'rock') {
                     result = 'Tie';
                     // humanScore = humanScore + 0
-                    computerScore = computerScore + 1;
+                    // computerScore = computerScore + 1;
                     showRock();
                 }
 
