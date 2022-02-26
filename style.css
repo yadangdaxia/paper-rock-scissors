@@ -1,37 +1,104 @@
 body {
-    background-color: #F7ECDE;
+    background-color: #EEE6CE;
+    color: #313552;
+    font-family: 'Montserrat', sans-serif;
 }
 
-
-.card-holder {
+h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 6px;
+    font-family: 'Orbitron', sans-serif;
+
+    /* text-align: center; */
 }
+
+.card-holder {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* width: 100%; */
+}
+
 
 .rps-card {
     width: 150px;
     height: 150px;
     margin: 24px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    color: #FFFFFF;
-    border:  24px solid #FFFFFF;
+    /* color: #FFFFFF; */
+    /* font-size: 18px; */
+    /* border:  24px solid #FFFFFF; */
 }
 
 .computer-card {
-    width: 120px;
-    height: 120px;
-    margin: 12px;
+    width: 150px;
+    height: 150px;
+    margin: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
-    border:  24px solid #FFFFFF;
-    font-size: 18px;
+    flex-wrap: wrap;
+    /* color: black; */
+    /* border:  24px solid #FFFFFF; */
+    /* font-size: 18px; */
 }
-.computer-card image {
-    width: 120px;
-    height: 120px;
+
+.rps-card img {
+    width: 135px;
+    height: 135px;
+    border-radius: 12px;
+}
+
+.rps-card img:hover {
+    border: 6px solid #B8405E;
+    border-radius: 12px;
+}
+
+.computer-card img {
+    width: 135px;
+    height: 135px;
+    border-radius: 12px;
+}
+
+.computer-card img.active {
+    border: 6px solid #2EB086;
+    border-radius: 12px;
+}
+
+
+#computer-score-card {
+  min-width: 135px;
+  padding: 24px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+#human-score-card {
+  min-width: 135px;
+  padding: 24px;
+  font-family: 'Orbitron', sans-serif;
+
+}
+
+.center-holder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rps-alert {
+  background-color: #313552;
+  width: 600px;
+  color:#EEE6CE;
+  margin: 32px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
 }
