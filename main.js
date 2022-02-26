@@ -35,7 +35,7 @@ humanCards.forEach((card) => {
 
         const choices = ['rock', 'paper', 'scissors'];
         let computerChoice = choices[Math.floor(Math.random() * choices.length)]
-        // console.log(computerChoice, '<-- this is the computer choice');
+        console.log(computerChoice, '<-- this is the computer choice');
         let computerRock = document.getElementById('computer-rock');
         // console.log(computerRock);
         let computerPaper = document.getElementById('computer-paper');
@@ -96,12 +96,12 @@ humanCards.forEach((card) => {
                 else if (computerChoice === 'paper' && humanChoice === 'paper') {
                     result = 'Tie';
                     // humanScore = humanScore + 0
-                  showRock();
+                  showPaper();
                 }
                 else if (computerChoice === 'paper' && humanChoice === 'rock') {
                     result = 'Computer';
                     computerScore = computerScore + 1;
-                  showRock();
+                  showPaper();
                 }
                 else if (computerChoice === 'paper' && humanChoice === 'scissors') {
                     result = 'Human';
@@ -128,9 +128,9 @@ humanCards.forEach((card) => {
                 }
 
 
-                // console.log(result, "<--- result");
-                // console.log(computerScore, "<--- computer score here");
-                // console.log(humanScore, "<--- human score here");
+                console.log(result, "<--- result");
+                console.log(computerScore, "<--- computer score here");
+                console.log(humanScore, "<--- human score here");
 
                 const displayComputerScore = document.getElementById('computer-score');
                 // console.log(displayComputerScore);
